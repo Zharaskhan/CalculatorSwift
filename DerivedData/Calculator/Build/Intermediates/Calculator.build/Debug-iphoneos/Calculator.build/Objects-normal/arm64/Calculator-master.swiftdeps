@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
+options: "0e614eb41472324f69c20199695ff667"
+build_time: [550700309, 11607000]
+inputs:
+  "/Users/zaman/iOS/projects/Calculator/Calculator/CalculatorBrain.swift": [550700308, 0]
+  "/Users/zaman/iOS/projects/Calculator/Calculator/CalculatorViewController.swift": [550699974, 0]
+  "/Users/zaman/iOS/projects/Calculator/Calculator/AppDelegate.swift": [550576060, 0]
