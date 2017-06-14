@@ -12,6 +12,8 @@ class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
 
+    @IBOutlet weak var historyLabel: UILabel!
+    
     var brain = CalculatorBrain()
     var userInTheMiddleOfTyping = false
     
@@ -21,21 +23,27 @@ class CalculatorViewController: UIViewController {
         
         let currentTextInDisplay = displayLabel.text!
         
+        print("before \(digit) \(currentTextInDisplay)")
         if !userInTheMiddleOfTyping || currentTextInDisplay == "0" {
             displayLabel.text = digit
-            if digit != "0" {
-                
-                userInTheMiddleOfTyping = true
-            }
         } else {
             
             displayLabel.text = currentTextInDisplay + digit
         }
+        
+        userInTheMiddleOfTyping = true
+        print("after \(digit) \(currentTextInDisplay)")
     }
     
     var displayValue: Double {
         get { return Double(displayLabel.text!)! }
-        set { displayLabel.text = String(newValue) }
+        set {
+            
+            let formatter = NumberFormatter()
+            formatter.maximumSignificantDigits = 5
+            displayLabel.text = formatter.string(from: newValue as NSNumber)
+           
+        }
     }
     
     @IBAction func performOperation(_ sender: UIButton) {
@@ -48,7 +56,9 @@ class CalculatorViewController: UIViewController {
             brain.performOperation(symbol)
             
             if let result = brain.result {
+            
                 displayValue = result
+                historyLabel.text = brain.history
             } 
         }
     }

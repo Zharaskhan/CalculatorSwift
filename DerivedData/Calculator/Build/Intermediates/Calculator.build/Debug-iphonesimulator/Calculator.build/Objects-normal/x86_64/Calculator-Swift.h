@@ -160,6 +160,7 @@ SWIFT_CLASS("_TtC10Calculator11AppDelegate")
 SWIFT_CLASS("_TtC10Calculator24CalculatorViewController")
 @interface CalculatorViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified displayLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified historyLabel;
 @property (nonatomic) BOOL userInTheMiddleOfTyping;
 - (IBAction)touchDigit:(UIButton * _Nonnull)sender;
 @property (nonatomic) double displayValue;
