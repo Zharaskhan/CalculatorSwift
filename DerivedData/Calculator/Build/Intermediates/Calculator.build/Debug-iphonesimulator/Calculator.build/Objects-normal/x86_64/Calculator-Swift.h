@@ -163,6 +163,7 @@ SWIFT_CLASS("_TtC10Calculator24CalculatorViewController")
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified historyLabel;
 @property (nonatomic) BOOL userInTheMiddleOfTyping;
 - (IBAction)touchDigit:(UIButton * _Nonnull)sender;
+- (IBAction)touchDot:(UIButton * _Nonnull)sender;
 @property (nonatomic) double displayValue;
 - (IBAction)performOperation:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

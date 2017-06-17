@@ -20,7 +20,6 @@ class CalculatorViewController: UIViewController {
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
         
-        
         let currentTextInDisplay = displayLabel.text!
         
         
@@ -30,8 +29,19 @@ class CalculatorViewController: UIViewController {
             
             displayLabel.text = currentTextInDisplay + digit
         }
-        
         userInTheMiddleOfTyping = true
+    }
+    @IBAction func touchDot(_ sender: UIButton) {
+       
+        
+        let currentTextInDisplay = displayLabel.text!
+        
+            if !userInTheMiddleOfTyping {
+                displayLabel.text = "0."
+            } else if currentTextInDisplay.contains(".") == false {
+                displayLabel.text = currentTextInDisplay + "."
+            }
+            userInTheMiddleOfTyping = true
         
     }
     

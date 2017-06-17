@@ -29,6 +29,7 @@ struct CalculatorBrain {
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double, Double) -> Double)
         case result
+        case clear
     }
     
     private var operations: [String: Operation] = [
@@ -37,10 +38,11 @@ struct CalculatorBrain {
         "√": Operation.unaryOperation(sqrt),
         "cos": Operation.unaryOperation(cos),
         "+": Operation.binaryOperation(+),
-        "−": Operation.binaryOperation(-),
+        "-": Operation.binaryOperation(-),
         "×": Operation.binaryOperation(*),
         "÷": Operation.binaryOperation(/),
-        "=": Operation.result
+        "=": Operation.result,
+        "C": Operation.clear
     ]
     
     
@@ -48,47 +50,55 @@ struct CalculatorBrain {
     mutating func performOperation(_ symbol: String) {
         if let operation = operations[symbol] {
             switch operation {
-            case .constant(let value):
-                accumulator = value
-                accumulatorString = symbol
-            case .unaryOperation(let function):
-                if accumulator != nil {
-                    accumulator = function(accumulator!)
-                    accumulatorString = symbol + "(" + accumulatorString! + ")"
-                } else {
-                    resultVal = function(resultVal!)
-                    resultString = symbol + "(" + resultString + ")"
-                }
-            case .binaryOperation(let function):
-                if resultIsPending {
+                case .constant(let value):
+                    accumulator = value
+                    accumulatorString = symbol
+                case .unaryOperation(let function):
                     if accumulator != nil {
-                        resultVal = pendingFunction(resultVal!, accumulator!)
-                        resultString = resultString + pendingSymbol + accumulatorString!
-                        accumulator = nil
-                        accumulatorString = nil
+                        accumulator = function(accumulator!)
+                        accumulatorString = symbol + "(" + accumulatorString! + ")"
+                    } else {
+                        resultVal = function(resultVal!)
+                        resultString = symbol + "(" + resultString + ")"
                     }
-                } else if resultString == ""{
-                    resultVal = accumulator
+                case .binaryOperation(let function):
+                    if resultIsPending {
+                        if accumulator != nil {
+                            resultVal = pendingFunction(resultVal!, accumulator!)
+                            resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
+                            accumulator = nil
+                            accumulatorString = nil
+                        }
+                    } else if resultString == ""{
+                        resultVal = accumulator
                     
-                    resultString = String(resultVal!)
-                    accumulator = nil
-                    accumulatorString = nil
-                }
-                pendingFunction = function
-                pendingSymbol = symbol
-                resultIsPending = true
-            case .result:
-                if resultIsPending {
-                    if accumulator != nil {
-                        
-                        resultVal = pendingFunction(resultVal!, accumulator!)
-                        resultString = resultString + pendingSymbol + accumulatorString!
+                        resultString = String(resultVal!)
                         accumulator = nil
                         accumulatorString = nil
-                        
                     }
-                }
-                resultIsPending = false
+                    pendingFunction = function
+                    pendingSymbol = symbol
+                    resultIsPending = true
+                case .result:
+                    if resultIsPending {
+                        if accumulator != nil {
+                            resultVal = pendingFunction(resultVal!, accumulator!)
+                            resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
+                            accumulator = nil
+                            accumulatorString = nil
+                        }
+                    }
+                    resultIsPending = false
+                case .clear:
+                    
+                    accumulator = 0
+                    accumulatorString = ""
+                    resultVal = 0
+                    resultString = ""
+                    
+                    resultIsPending = false
+                    pendingFunction = (+)
+                    pendingSymbol = ""
             }
         }
     }
