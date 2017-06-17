@@ -11,7 +11,7 @@ struct CalculatorBrain {
     
     private var accumulator: Double? = 0
     private var accumulatorString: String? = ""
-    private var resultVal: Double? = 0
+    private var resultVal: Double?
     private var resultString: String = ""
     
     private var resultIsPending = false
@@ -22,65 +22,84 @@ struct CalculatorBrain {
     mutating func setOperand(_ operand: Double) {
         accumulator = operand
         accumulatorString = String(operand)
+    
     }
     
     private enum Operation {
         case constant(Double)
-        case unaryOperation((Double) -> Double)
+        case unaryOperation((Double, String) -> (Double, String))
         case binaryOperation((Double, Double) -> Double)
         case result
         case clear
+        case random
     }
     
     private var operations: [String: Operation] = [
         "π": Operation.constant(Double.pi),
         "e": Operation.constant(M_E),
-        "√": Operation.unaryOperation(sqrt),
-        "cos": Operation.unaryOperation(cos),
+        "√": Operation.unaryOperation {(sqrt($0), "√(" + $1 + ")")},
+        "±": Operation.unaryOperation {(-$0, "-(" + $1 + ")")},
+        "cos": Operation.unaryOperation {(cos($0), "cos(" + $1 + ")")},
+        "sin": Operation.unaryOperation {(sin($0), "cos(" + $1 + ")")},
+        "x^2": Operation.unaryOperation {($0 * $0, "(" + $1 + ")^2")},
         "+": Operation.binaryOperation(+),
         "-": Operation.binaryOperation(-),
         "×": Operation.binaryOperation(*),
         "÷": Operation.binaryOperation(/),
         "=": Operation.result,
+        "Rand": Operation.random,
         "C": Operation.clear
     ]
     
     
-    // выполняем операцию
+    // performing operation
     mutating func performOperation(_ symbol: String) {
         if let operation = operations[symbol] {
             switch operation {
                 case .constant(let value):
+                    
                     accumulator = value
                     accumulatorString = symbol
+                case .random:
+                    //generating random number between 0 and 100 with 2 digits after floating point
+                    accumulator = (Double(arc4random_uniform(101)) / 100.0)
+                    accumulatorString = String(accumulator!)
                 case .unaryOperation(let function):
                     if accumulator != nil {
-                        accumulator = function(accumulator!)
-                        accumulatorString = symbol + "(" + accumulatorString! + ")"
+                        //performing function on number in display
+                        
+                        let f = function(accumulator!, accumulatorString!)
+                        accumulator = f.0
+                        accumulatorString = f.1
+                        
                     } else {
-                        resultVal = function(resultVal!)
-                        resultString = symbol + "(" + resultString + ")"
+                        //performing function on result number
+                        let f = function(resultVal!, resultString)
+                        resultVal = f.0
+                        resultString = f.1
+                        
+                        
                     }
                 case .binaryOperation(let function):
                     if resultIsPending {
+                        //performing delayed operation
                         if accumulator != nil {
                             resultVal = pendingFunction(resultVal!, accumulator!)
                             resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
-                            accumulator = nil
-                            accumulatorString = nil
                         }
                     } else if resultString == ""{
                         resultVal = accumulator
-                    
-                        resultString = String(resultVal!)
-                        accumulator = nil
-                        accumulatorString = nil
+                        resultString = accumulatorString!
+                        
                     }
+                    accumulator = nil
+                    accumulatorString = nil
                     pendingFunction = function
                     pendingSymbol = symbol
                     resultIsPending = true
                 case .result:
                     if resultIsPending {
+                        //performing delayed operation
                         if accumulator != nil {
                             resultVal = pendingFunction(resultVal!, accumulator!)
                             resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
@@ -93,7 +112,7 @@ struct CalculatorBrain {
                     
                     accumulator = 0
                     accumulatorString = ""
-                    resultVal = 0
+                    resultVal = nil
                     resultString = ""
                     
                     resultIsPending = false
@@ -113,7 +132,7 @@ struct CalculatorBrain {
     var history: String? {
         var tmp = resultString
         if resultIsPending {
-            tmp += " " + pendingSymbol
+            tmp += " " + pendingSymbol + " "
             if (accumulator != nil) {
                 tmp += accumulatorString!
             }
