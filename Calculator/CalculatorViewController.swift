@@ -23,7 +23,7 @@ class CalculatorViewController: UIViewController {
         
         let currentTextInDisplay = displayLabel.text!
         
-        print("before \(digit) \(currentTextInDisplay)")
+        
         if !userInTheMiddleOfTyping || currentTextInDisplay == "0" {
             displayLabel.text = digit
         } else {
@@ -32,7 +32,7 @@ class CalculatorViewController: UIViewController {
         }
         
         userInTheMiddleOfTyping = true
-        print("after \(digit) \(currentTextInDisplay)")
+        
     }
     
     var displayValue: Double {
@@ -54,12 +54,8 @@ class CalculatorViewController: UIViewController {
         
         if let symbol = sender.currentTitle {
             brain.performOperation(symbol)
-            
-            if let result = brain.result {
-            
-                displayValue = result
-                historyLabel.text = brain.history
-            } 
+            displayValue = brain.displayNumber!
+            historyLabel.text = brain.historyString
         }
     }
     

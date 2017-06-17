@@ -28,7 +28,6 @@ depends-top-level:
 - "UILabel"
 - "UIViewController"
 - !private "UnicodeScalarType"
-- !private "print"
 - !private "||"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -42,7 +41,6 @@ depends-member:
 - !private ["Ps9AnyObject", "historyLabel"]
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "maximumSignificantDigits"]
-- !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "userInTheMiddleOfTyping"]
@@ -61,7 +59,6 @@ depends-member:
 - !private ["Ps7CVarArg", "historyLabel"]
 - !private ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "maximumSignificantDigits"]
-- !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "userInTheMiddleOfTyping"]
@@ -84,7 +81,6 @@ depends-member:
 - ["C10Calculator24CalculatorViewController", "historyLabel"]
 - ["C10Calculator24CalculatorViewController", "init"]
 - ["C10Calculator24CalculatorViewController", "performOperation"]
-- !private ["C10Calculator24CalculatorViewController", "print"]
 - ["C10Calculator24CalculatorViewController", "touchDigit"]
 - ["C10Calculator24CalculatorViewController", "userInTheMiddleOfTyping"]
 - !private ["Ps10Comparable", "init"]
@@ -98,7 +94,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "historyLabel"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "maximumSignificantDigits"]
-- !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "userInTheMiddleOfTyping"]
@@ -118,7 +113,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "historyLabel"]
 - !private ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "maximumSignificantDigits"]
-- !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "userInTheMiddleOfTyping"]
@@ -135,7 +129,6 @@ depends-member:
 - !private ["Ps9Equatable", "historyLabel"]
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "maximumSignificantDigits"]
-- !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "userInTheMiddleOfTyping"]
@@ -161,7 +154,6 @@ depends-member:
 - !private ["Ps8Hashable", "historyLabel"]
 - !private ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "maximumSignificantDigits"]
-- !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "userInTheMiddleOfTyping"]
@@ -179,7 +171,6 @@ depends-member:
 - !private ["PSo8NSCoding", "historyLabel"]
 - !private ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "maximumSignificantDigits"]
-- !private ["PSo8NSCoding", "print"]
 - !private ["PSo8NSCoding", "string"]
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "userInTheMiddleOfTyping"]
@@ -195,7 +186,6 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "displayValue"]
 - !private ["PSo26NSExtensionRequestHandling", "historyLabel"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
-- !private ["PSo26NSExtensionRequestHandling", "print"]
 - !private ["PSo26NSExtensionRequestHandling", "userInTheMiddleOfTyping"]
 - ["PSo26NSExtensionRequestHandling", ""]
 - !private ["PSo16NSMutableCopying", "init"]
@@ -213,7 +203,6 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "maximumSignificantDigits"]
 - ["CSo8NSObject", "performOperation"]
-- !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "text"]
 - ["CSo8NSObject", "touchDigit"]
@@ -228,7 +217,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "historyLabel"]
 - !private ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "maximumSignificantDigits"]
-- !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "userInTheMiddleOfTyping"]
@@ -256,7 +244,6 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "displayValue"]
 - !private ["PSo21UIAppearanceContainer", "historyLabel"]
 - !private ["PSo21UIAppearanceContainer", "init"]
-- !private ["PSo21UIAppearanceContainer", "print"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "userInTheMiddleOfTyping"]
 - ["PSo21UIAppearanceContainer", ""]
@@ -269,7 +256,6 @@ depends-member:
 - !private ["PSo18UIContentContainer", "displayValue"]
 - !private ["PSo18UIContentContainer", "historyLabel"]
 - !private ["PSo18UIContentContainer", "init"]
-- !private ["PSo18UIContentContainer", "print"]
 - !private ["PSo18UIContentContainer", "userInTheMiddleOfTyping"]
 - ["PSo18UIContentContainer", ""]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
@@ -287,7 +273,6 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "displayValue"]
 - !private ["PSo18UIFocusEnvironment", "historyLabel"]
 - !private ["PSo18UIFocusEnvironment", "init"]
-- !private ["PSo18UIFocusEnvironment", "print"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "userInTheMiddleOfTyping"]
 - ["PSo18UIFocusEnvironment", ""]
@@ -307,7 +292,6 @@ depends-member:
 - ["CSo11UIResponder", "historyLabel"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "performOperation"]
-- !private ["CSo11UIResponder", "print"]
 - !private ["CSo11UIResponder", "text"]
 - ["CSo11UIResponder", "touchDigit"]
 - ["CSo11UIResponder", "userInTheMiddleOfTyping"]
@@ -320,7 +304,6 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "displayValue"]
 - !private ["PSo30UIResponderStandardEditActions", "historyLabel"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
-- !private ["PSo30UIResponderStandardEditActions", "print"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "userInTheMiddleOfTyping"]
 - ["PSo30UIResponderStandardEditActions", ""]
@@ -332,7 +315,6 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "displayValue"]
 - !private ["PSo16UIStateRestoring", "historyLabel"]
 - !private ["PSo16UIStateRestoring", "init"]
-- !private ["PSo16UIStateRestoring", "print"]
 - !private ["PSo16UIStateRestoring", "userInTheMiddleOfTyping"]
 - ["PSo16UIStateRestoring", ""]
 - ["PSo18UITraitEnvironment", "CalculatorBrain"]
@@ -344,7 +326,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "displayValue"]
 - !private ["PSo18UITraitEnvironment", "historyLabel"]
 - !private ["PSo18UITraitEnvironment", "init"]
-- !private ["PSo18UITraitEnvironment", "print"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "userInTheMiddleOfTyping"]
 - ["PSo18UITraitEnvironment", ""]
@@ -362,7 +343,6 @@ depends-member:
 - ["CSo16UIViewController", "historyLabel"]
 - ["CSo16UIViewController", "init"]
 - ["CSo16UIViewController", "performOperation"]
-- !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "touchDigit"]
 - ["CSo16UIViewController", "userInTheMiddleOfTyping"]
 - ["CSo16UIViewController", ""]
@@ -390,7 +370,6 @@ depends-member:
 - !private ["Ps9_Hashable", "historyLabel"]
 - !private ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "maximumSignificantDigits"]
-- !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "userInTheMiddleOfTyping"]
@@ -398,6 +377,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps11_Strideable", "init"]
+- !private ["CV10Calculator15CalculatorBrain13historyStruct", "deinit"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
@@ -472,6 +452,7 @@ depends-nominal:
 - "Ps9_Hashable"
 - !private "Ps21_ObjectiveCBridgeable"
 - !private "Ps11_Strideable"
+- !private "CV10Calculator15CalculatorBrain13historyStruct"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.apinotesc"
