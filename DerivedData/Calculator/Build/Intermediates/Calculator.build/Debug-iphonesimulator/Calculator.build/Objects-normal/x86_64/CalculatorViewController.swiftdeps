@@ -17,7 +17,6 @@ depends-top-level:
 - !private "+"
 - !private "=="
 - "AssignmentPrecedence"
-- "BooleanLiteralType"
 - "CalculatorBrain"
 - "CalculatorViewController"
 - "CastingPrecedence"
@@ -64,10 +63,10 @@ depends-member:
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "userInTheMiddleOfTyping"]
 - ["Ps7CVarArg", ""]
-- !private ["V10Calculator15CalculatorBrain", "displayNumber"]
-- !private ["V10Calculator15CalculatorBrain", "historyString"]
+- !private ["V10Calculator15CalculatorBrain", "history"]
 - ["V10Calculator15CalculatorBrain", "init"]
 - !private ["V10Calculator15CalculatorBrain", "performOperation"]
+- !private ["V10Calculator15CalculatorBrain", "result"]
 - !private ["V10Calculator15CalculatorBrain", "setOperand"]
 - ["C10Calculator24CalculatorViewController", "CalculatorBrain"]
 - ["C10Calculator24CalculatorViewController", "Double"]

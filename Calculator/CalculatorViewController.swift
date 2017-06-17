@@ -54,8 +54,8 @@ class CalculatorViewController: UIViewController {
         
         if let symbol = sender.currentTitle {
             brain.performOperation(symbol)
-            displayValue = brain.displayNumber!
-            historyLabel.text = brain.historyString
+            displayValue = brain.result!
+            historyLabel.text = brain.history
         }
     }
     
