@@ -14,7 +14,60 @@ struct CalculatorBrain {
     private var resultNumber: Double = 0
     private var displayNumber: Double? = 0
     private var resultIsPending = false
-    private var historyArray:[String] = ["0"]
+    
+    struct historyArray {
+        //                  is binary operation
+        private var array:[(String, Bool)] = [("0", false)]
+        
+        func islastBinary() -> Bool {
+        
+            if self.array.last == nil {
+                return false
+            }
+            return self.array.last!.1
+        }
+        mutating func append(_ symbol: String) {
+            if symbol == "+" || symbol == "-" || symbol == "×" || symbol == "÷" {
+                if self.islastBinary() == false {
+                    self.array.append((symbol, true))
+                } else {
+                    self.array[array.count - 1].0 = symbol
+                }
+                
+            } else {
+                self.array.append((symbol, false))
+            }
+        }
+        
+        mutating func append(_ symbol: String, _ num: String) {
+            if self.array.last != nil && self.array.last!.0.characters.last == ")" {
+                self.array[self.array.count - 1].0 = symbol + "(" + self.array[self.array.count - 1].0 + ")"
+            } else {
+                self.append(symbol + "(" + num + ")");
+            }
+        }
+        
+        func get() -> String {
+            
+            var result = ""
+            for i in self.array {
+                if let val = Double(i.0) {
+                    let formatter = NumberFormatter()
+                    formatter.maximumSignificantDigits = 5
+                    result += formatter.string(from: val as NSNumber)!
+                } else {
+                    result += i.0 + " "
+                }
+            }
+            return result
+        }
+        mutating func clear() {
+            self.array.removeAll()
+        }
+        
+    }
+    var MyHistoryArray: historyArray = historyArray()
+    
     
     private var pendingFunction: ((Double, Double) -> Double)?
     // закачиваем операнд в модельку
@@ -58,16 +111,16 @@ struct CalculatorBrain {
             
                 if (resultIsPending) {
                     //100 + ...
-                    if (historyArray.last == "+" || historyArray.last == "-" || historyArray.last == "×" || historyArray.last == "÷") {
-                        
-                        historyArray.append(symbol)
+                    if MyHistoryArray.islastBinary() {
+                        MyHistoryArray.append(symbol)
                     }
                     
                     
                 } else {
                     //100 or 100 + 232 -> pi
-                    historyArray.removeAll()
-                    historyArray.append(symbol)
+                    
+                    MyHistoryArray.clear();
+                    MyHistoryArray.append(symbol)
                     
                     //100 + pi
                     resultIsPending = false
@@ -79,13 +132,13 @@ struct CalculatorBrain {
                     
                     if (displayNumber != nil) {
                         //10 + x
-                        historyArray.append(symbol + "(" + String(displayNumber!) + ")")
+                        MyHistoryArray.append(symbol, String(displayNumber!))
                         displayNumber = function(displayNumber!)
                     } else {
                         //10 + .. -> 10 + sqrt(10)
                         
                         
-                        historyArray.append(symbol + "(" + String(resultNumber) + ")")
+                        MyHistoryArray.append(symbol, String(resultNumber))
                         displayNumber = function(resultNumber)
                         
                     }
@@ -94,9 +147,8 @@ struct CalculatorBrain {
                     if (displayNumber != nil) {
                         //100, 23213 -> func(23213)
                         //clear
-                        historyArray.removeAll()
-                        
-                        historyArray.append(symbol + "(" + String(displayNumber!) + ")")
+                        MyHistoryArray.clear()
+                        MyHistoryArray.append(symbol, String(displayNumber!))
                         displayNumber = function(displayNumber!)
                     } else {
                         //100, ... -> sqrt(100)
@@ -104,9 +156,10 @@ struct CalculatorBrain {
                        // historyArray.removeAll()
                         
                        // historyArray.append(symbol + "(" + String(resultNumber) + ")")
+                        let tmpstring = MyHistoryArray.get()
+                        MyHistoryArray.clear()
+                        MyHistoryArray.append(symbol, tmpstring)
                         
-                        historyArray[0] = symbol + "(" + historyArray[0]
-                        historyArray[historyArray.count - 1] += ")"
                         resultNumber = function(resultNumber)
                         
                     }
@@ -116,19 +169,20 @@ struct CalculatorBrain {
                 resultNumber = 0
                 displayNumber = 0
                 resultIsPending = false
-                historyArray = ["0"]
+                MyHistoryArray.clear()
                 pendingFunction = nil
+                
             case .binaryOperation(let function):
                 if resultIsPending {
                     if (displayNumber != nil) {
                         //10 + x *
-                        
-                        if (historyArray.last == "+" || historyArray.last == "-" || historyArray.last == "×" || historyArray.last == "÷") {
+                        if MyHistoryArray.islastBinary() {
                             
-                            historyArray.append(String(displayNumber!))
+                            MyHistoryArray.append(String(displayNumber!))
                         }
                         
-                        historyArray.append(symbol)
+                        
+                        MyHistoryArray.append(symbol)
                         
                         resultNumber = pendingFunction!(resultNumber, displayNumber!)
                         
@@ -138,7 +192,8 @@ struct CalculatorBrain {
                         
                     } else {
                         //10 + .. -> 10 - ..
-                        historyArray[historyArray.count - 1] = symbol
+                        
+                        MyHistoryArray.append(symbol)
                         pendingFunction = function
                         
                     }
@@ -150,16 +205,17 @@ struct CalculatorBrain {
                         //restart
                         resultNumber = displayNumber!
                         
-                        historyArray.removeAll()
-                        historyArray.append(String(displayNumber!))
-                        historyArray.append(symbol)
+                        MyHistoryArray.clear()
+                        
+                        MyHistoryArray.append(String(displayNumber!))
+                        MyHistoryArray.append(symbol)
                         
                         displayNumber = nil
                         pendingFunction = function
                         resultIsPending = true
                     } else {
                         //1000, ... *
-                        historyArray.append(symbol)
+                        MyHistoryArray.append(symbol)
                         
                         pendingFunction = function
                         resultIsPending = true
@@ -170,11 +226,13 @@ struct CalculatorBrain {
                 if resultIsPending {
                     if (displayNumber != nil) {
                         //10 + x -> 10 + x =
-                        if (historyArray.last == "+" || historyArray.last == "-" || historyArray.last == "×" || historyArray.last == "÷") {
+                        
+                        if MyHistoryArray.islastBinary() {
                             
-                            historyArray.append(String(displayNumber!))
+                            MyHistoryArray.append(String(displayNumber!))
                         }
-                        //10 + sqrt(x)
+                        // else             in display 3.14
+                        //10 + pi
                         
                         
                         resultNumber = pendingFunction!(resultNumber, displayNumber!)
@@ -183,7 +241,7 @@ struct CalculatorBrain {
                     } else {
                         //10 + .. -> 10 + 10
                        
-                        historyArray.append(String(resultNumber))
+                        MyHistoryArray.append(String(resultNumber))
                         resultNumber = pendingFunction!(resultNumber, resultNumber)
                         
                     }
@@ -198,8 +256,8 @@ struct CalculatorBrain {
                         } else {
                             //1000, 123123213 =
                             //clean history
-                            historyArray.removeAll()
-                            historyArray.append(String(displayNumber!))
+                            MyHistoryArray.clear()
+                            MyHistoryArray.append(String(displayNumber!))
                             resultNumber = displayNumber!
                         }
                         
@@ -238,10 +296,7 @@ struct CalculatorBrain {
         return resultNumber
     }
     var history: String {
-        var tmpstring = ""
-        for i in historyArray {
-            tmpstring += i + " ";
-        }
+        var tmpstring = MyHistoryArray.get()
         if (resultIsPending) {
             tmpstring += "..."
         } else {
