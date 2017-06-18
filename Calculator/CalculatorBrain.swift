@@ -18,10 +18,19 @@ struct CalculatorBrain {
     private var pendingFunction: (Double, Double) -> Double = (+)
     private var pendingSymbol: String = ""
     
+    
+    //Transforms number to string with 5 maximum significant digits
+    func toString(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.maximumSignificantDigits = 5
+        return formatter.string(from: number as NSNumber)!
+    }
+    
+    
     // закачиваем операнд в модельку
     mutating func setOperand(_ operand: Double) {
         accumulator = operand
-        accumulatorString = String(operand)
+        accumulatorString = toString(operand)
     
     }
     
@@ -40,7 +49,7 @@ struct CalculatorBrain {
         "√": Operation.unaryOperation {(sqrt($0), "√(" + $1 + ")")},
         "±": Operation.unaryOperation {(-$0, "-(" + $1 + ")")},
         "cos": Operation.unaryOperation {(cos($0), "cos(" + $1 + ")")},
-        "sin": Operation.unaryOperation {(sin($0), "cos(" + $1 + ")")},
+        "sin": Operation.unaryOperation {(sin($0), "sin(" + $1 + ")")},
         "x^2": Operation.unaryOperation {($0 * $0, "(" + $1 + ")^2")},
         "+": Operation.binaryOperation(+),
         "-": Operation.binaryOperation(-),
@@ -63,7 +72,7 @@ struct CalculatorBrain {
                 case .random:
                     //generating random number between 0 and 100 with 2 digits after floating point
                     accumulator = (Double(arc4random_uniform(101)) / 100.0)
-                    accumulatorString = String(accumulator!)
+                    accumulatorString = toString(accumulator!)
                 case .unaryOperation(let function):
                     if accumulator != nil {
                         //performing function on number in display
