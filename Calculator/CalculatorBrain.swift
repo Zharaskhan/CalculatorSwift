@@ -51,6 +51,8 @@ struct CalculatorBrain {
         "cos": Operation.unaryOperation {(cos($0), "cos(" + $1 + ")")},
         "sin": Operation.unaryOperation {(sin($0), "sin(" + $1 + ")")},
         "x^2": Operation.unaryOperation {($0 * $0, "(" + $1 + ")^2")},
+        "ln": Operation.unaryOperation {(log($0), "ln(" + $1 + ")")},
+        "1/x": Operation.unaryOperation {(1/$0, "1/(" + $1 + ")")},
         "+": Operation.binaryOperation(+),
         "-": Operation.binaryOperation(-),
         "×": Operation.binaryOperation(*),
@@ -63,7 +65,9 @@ struct CalculatorBrain {
     
     // performing operation
     mutating func performOperation(_ symbol: String) {
+  
         if let operation = operations[symbol] {
+         
             switch operation {
                 case .constant(let value):
                     
@@ -74,6 +78,10 @@ struct CalculatorBrain {
                     accumulator = (Double(arc4random_uniform(101)) / 100.0)
                     accumulatorString = toString(accumulator!)
                 case .unaryOperation(let function):
+                    if resultIsPending && accumulator == nil {
+                        accumulator = resultVal
+                        accumulatorString = resultString
+                    }
                     if accumulator != nil {
                         //performing function on number in display
                         
@@ -90,17 +98,28 @@ struct CalculatorBrain {
                         
                     }
                 case .binaryOperation(let function):
+                    
                     if resultIsPending {
                         //performing delayed operation
                         if accumulator != nil {
                             resultVal = pendingFunction(resultVal!, accumulator!)
                             resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
                         }
-                    } else if resultString == ""{
+                    } else if resultString.isEmpty{
+                        
+                        //Case when  result is string empty
+                        
+                        if accumulator == 0 {
+                            accumulatorString = "0"
+                        }
                         resultVal = accumulator
                         resultString = accumulatorString!
+                        print (resultString)
                         
                     }
+                    
+                    
+                
                     accumulator = nil
                     accumulatorString = nil
                     pendingFunction = function
@@ -140,13 +159,16 @@ struct CalculatorBrain {
     
     var history: String? {
         var tmp = resultString
-        if resultIsPending {
+        if resultIsPending || resultString.isEmpty {
             tmp += " " + pendingSymbol + " "
             if (accumulator != nil) {
                 tmp += accumulatorString!
             }
             tmp += " ... "
         } else {
+            if accumulatorString != nil {
+                tmp += accumulatorString!
+            }
             tmp += " = "
         }
         return tmp
