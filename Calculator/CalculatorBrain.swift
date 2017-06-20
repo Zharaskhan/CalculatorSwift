@@ -114,7 +114,7 @@ struct CalculatorBrain {
                         }
                         resultVal = accumulator
                         resultString = accumulatorString!
-                        print (resultString)
+                        
                         
                     }
                     
