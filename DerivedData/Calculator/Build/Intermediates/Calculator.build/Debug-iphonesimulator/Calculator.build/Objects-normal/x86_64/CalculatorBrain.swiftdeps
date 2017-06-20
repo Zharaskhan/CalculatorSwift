@@ -1,378 +1,222 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "CalculatorBrain"
-- "=="
 provides-nominal:
 - "V10Calculator15CalculatorBrain"
-- "OV10Calculator15CalculatorBrain14expressionType"
-- "VV10Calculator15CalculatorBrain13historyStruct"
 provides-member:
 - ["V10Calculator15CalculatorBrain", ""]
-- ["OV10Calculator15CalculatorBrain14expressionType", ""]
-- ["VV10Calculator15CalculatorBrain13historyStruct", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "!="
+- !private "&&"
 - "*"
 - "+"
 - !private "+="
 - "-"
 - "/"
-- "=="
+- !private "=="
 - "AssignmentPrecedence"
-- !private "BooleanLiteralType"
+- "BooleanLiteralType"
 - "CalculatorBrain"
 - "CastingPrecedence"
 - "Double"
 - "FloatLiteralType"
 - "IntegerLiteralType"
 - "M_E"
+- !private "NSNumber"
+- !private "NumberFormatter"
 - "String"
 - "StringLiteralType"
 - "UnicodeScalarType"
+- !private "arc4random_uniform"
 - "cos"
+- "log"
 - !private "print"
+- "sin"
 - "sqrt"
-- !private "stride"
+- !private "||"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
 - ["Ps16AbsoluteValuable", "pi"]
 - ["Ps9AnyObject", "init"]
-- !private ["Sa", "append"]
-- !private ["Sa", "count"]
-- !private ["Sa", "isEmpty"]
-- !private ["Sa", "last"]
-- !private ["Sa", "popLast"]
-- !private ["Sa", "removeAll"]
-- !private ["Sa", "subscript"]
-- !private ["Vs10ArraySlice", "0"]
-- !private ["Vs10ArraySlice", "1"]
-- !private ["Ps23BidirectionalCollection", "0"]
-- !private ["Ps23BidirectionalCollection", "1"]
-- !private ["Ps23BidirectionalCollection", "append"]
-- !private ["Ps23BidirectionalCollection", "count"]
-- !private ["Ps23BidirectionalCollection", "isEmpty"]
-- !private ["Ps23BidirectionalCollection", "last"]
-- !private ["Ps23BidirectionalCollection", "popLast"]
-- !private ["Ps23BidirectionalCollection", "removeAll"]
-- !private ["Ps23BidirectionalCollection", "subscript"]
+- !private ["Ps9AnyObject", "isEmpty"]
+- !private ["Ps9AnyObject", "maximumSignificantDigits"]
+- !private ["Ps9AnyObject", "string"]
+- !private ["Ps19BinaryFloatingPoint", "init"]
 - ["Ps19BinaryFloatingPoint", "pi"]
-- !private ["Ps17BitwiseOperations", "hashValue"]
 - !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["Ps7CVarArg", "append"]
-- !private ["Ps7CVarArg", "count"]
-- !private ["Ps7CVarArg", "hashValue"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "isEmpty"]
-- !private ["Ps7CVarArg", "last"]
+- !private ["Ps7CVarArg", "maximumSignificantDigits"]
 - ["Ps7CVarArg", "pi"]
-- !private ["Ps7CVarArg", "popLast"]
-- !private ["Ps7CVarArg", "removeAll"]
+- !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
 - ["V10Calculator15CalculatorBrain", "Double"]
 - ["V10Calculator15CalculatorBrain", "M_E"]
+- !private ["V10Calculator15CalculatorBrain", "NSNumber"]
+- !private ["V10Calculator15CalculatorBrain", "NumberFormatter"]
 - ["V10Calculator15CalculatorBrain", "Operation"]
 - ["V10Calculator15CalculatorBrain", "String"]
+- !private ["V10Calculator15CalculatorBrain", "accumulator"]
+- !private ["V10Calculator15CalculatorBrain", "accumulatorString"]
+- !private ["V10Calculator15CalculatorBrain", "arc4random_uniform"]
 - ["V10Calculator15CalculatorBrain", "cos"]
-- ["V10Calculator15CalculatorBrain", "displayNumber"]
-- ["V10Calculator15CalculatorBrain", "expressionType"]
 - ["V10Calculator15CalculatorBrain", "history"]
-- ["V10Calculator15CalculatorBrain", "historyString"]
-- ["V10Calculator15CalculatorBrain", "historyStruct"]
 - ["V10Calculator15CalculatorBrain", "init"]
+- ["V10Calculator15CalculatorBrain", "log"]
 - !private ["V10Calculator15CalculatorBrain", "operations"]
+- !private ["V10Calculator15CalculatorBrain", "pendingFunction"]
+- !private ["V10Calculator15CalculatorBrain", "pendingSymbol"]
 - ["V10Calculator15CalculatorBrain", "performOperation"]
 - !private ["V10Calculator15CalculatorBrain", "print"]
+- ["V10Calculator15CalculatorBrain", "result"]
+- !private ["V10Calculator15CalculatorBrain", "resultIsPending"]
+- !private ["V10Calculator15CalculatorBrain", "resultString"]
+- !private ["V10Calculator15CalculatorBrain", "resultVal"]
 - ["V10Calculator15CalculatorBrain", "setOperand"]
+- ["V10Calculator15CalculatorBrain", "sin"]
 - ["V10Calculator15CalculatorBrain", "sqrt"]
-- !private ["V10Calculator15CalculatorBrain", "stride"]
-- !private ["Ps10Collection", "0"]
-- !private ["Ps10Collection", "1"]
-- !private ["Ps10Collection", "append"]
-- !private ["Ps10Collection", "count"]
-- !private ["Ps10Collection", "isEmpty"]
-- !private ["Ps10Collection", "last"]
-- !private ["Ps10Collection", "popLast"]
-- !private ["Ps10Collection", "removeAll"]
+- ["V10Calculator15CalculatorBrain", "toString"]
 - !private ["Ps10Collection", "subscript"]
-- !private ["Ps10Comparable", "hashValue"]
 - ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "isEmpty"]
 - ["Ps10Comparable", "pi"]
-- !private ["Ps28CustomDebugStringConvertible", "0"]
-- !private ["Ps28CustomDebugStringConvertible", "1"]
-- !private ["Ps28CustomDebugStringConvertible", "append"]
-- !private ["Ps28CustomDebugStringConvertible", "count"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
-- !private ["Ps28CustomDebugStringConvertible", "last"]
+- !private ["Ps28CustomDebugStringConvertible", "maximumSignificantDigits"]
 - ["Ps28CustomDebugStringConvertible", "pi"]
-- !private ["Ps28CustomDebugStringConvertible", "popLast"]
-- !private ["Ps28CustomDebugStringConvertible", "removeAll"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - ["Ps29CustomPlaygroundQuickLookable", "pi"]
-- !private ["Ps17CustomReflectable", "0"]
-- !private ["Ps17CustomReflectable", "1"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
-- !private ["Ps17CustomReflectable", "append"]
-- !private ["Ps17CustomReflectable", "count"]
-- !private ["Ps17CustomReflectable", "hashValue"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "isEmpty"]
-- !private ["Ps17CustomReflectable", "last"]
 - ["Ps17CustomReflectable", "pi"]
-- !private ["Ps17CustomReflectable", "popLast"]
-- !private ["Ps17CustomReflectable", "removeAll"]
 - !private ["Ps17CustomReflectable", "subscript"]
-- !private ["Ps23CustomStringConvertible", "0"]
-- !private ["Ps23CustomStringConvertible", "1"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
-- !private ["Ps23CustomStringConvertible", "append"]
-- !private ["Ps23CustomStringConvertible", "count"]
-- !private ["Ps23CustomStringConvertible", "hashValue"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "isEmpty"]
-- !private ["Ps23CustomStringConvertible", "last"]
+- !private ["Ps23CustomStringConvertible", "maximumSignificantDigits"]
 - ["Ps23CustomStringConvertible", "pi"]
-- !private ["Ps23CustomStringConvertible", "popLast"]
-- !private ["Ps23CustomStringConvertible", "removeAll"]
+- !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Vs10Dictionary", "subscript"]
+- !private ["Sd", "init"]
 - ["Sd", "pi"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
-- ["Ps9Equatable", "_toAnyHashable"]
-- ["Ps9Equatable", "hashValue"]
 - ["Ps9Equatable", "init"]
-- !private ["Ps9Equatable", "number"]
+- !private ["Ps9Equatable", "isEmpty"]
+- !private ["Ps9Equatable", "maximumSignificantDigits"]
 - ["Ps9Equatable", "pi"]
-- !private ["Ps9Equatable", "sign"]
-- ["Ps9Equatable", ""]
-- !private ["Ps25ExpressibleByArrayLiteral", "0"]
-- !private ["Ps25ExpressibleByArrayLiteral", "1"]
-- !private ["Ps25ExpressibleByArrayLiteral", "append"]
-- !private ["Ps25ExpressibleByArrayLiteral", "count"]
-- !private ["Ps25ExpressibleByArrayLiteral", "isEmpty"]
-- !private ["Ps25ExpressibleByArrayLiteral", "last"]
-- !private ["Ps25ExpressibleByArrayLiteral", "popLast"]
-- !private ["Ps25ExpressibleByArrayLiteral", "removeAll"]
-- !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
+- !private ["Ps9Equatable", "string"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
 - ["Ps25ExpressibleByFloatLiteral", "pi"]
-- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
 - ["Ps27ExpressibleByIntegerLiteral", "pi"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps13FloatingPoint", "init"]
 - ["Ps13FloatingPoint", "pi"]
+- !private ["CSo9Formatter", "init"]
+- !private ["CSo9Formatter", "maximumSignificantDigits"]
+- !private ["CSo9Formatter", "string"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
-- ["Ps8Hashable", "_toAnyHashable"]
-- ["Ps8Hashable", "hashValue"]
 - ["Ps8Hashable", "init"]
-- !private ["Ps8Hashable", "number"]
+- !private ["Ps8Hashable", "isEmpty"]
+- !private ["Ps8Hashable", "maximumSignificantDigits"]
 - ["Ps8Hashable", "pi"]
-- !private ["Ps8Hashable", "sign"]
-- ["Ps8Hashable", ""]
-- !private ["Si", "hashValue"]
-- !private ["Ps7Integer", "hashValue"]
-- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps8Hashable", "string"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "isEmpty"]
 - ["Ps25LosslessStringConvertible", "pi"]
-- !private ["Ps10MirrorPath", "hashValue"]
 - ["Ps10MirrorPath", "init"]
-- !private ["Vs25MutableBidirectionalSlice", "0"]
-- !private ["Vs25MutableBidirectionalSlice", "1"]
-- !private ["Ps17MutableCollection", "0"]
-- !private ["Ps17MutableCollection", "1"]
-- !private ["Ps17MutableCollection", "append"]
-- !private ["Ps17MutableCollection", "count"]
-- !private ["Ps17MutableCollection", "isEmpty"]
-- !private ["Ps17MutableCollection", "last"]
-- !private ["Ps17MutableCollection", "popLast"]
-- !private ["Ps17MutableCollection", "removeAll"]
-- !private ["Ps17MutableCollection", "subscript"]
-- !private ["Vs24MutableRandomAccessSlice", "0"]
-- !private ["Vs24MutableRandomAccessSlice", "1"]
-- !private ["Vs12MutableSlice", "0"]
-- !private ["Vs12MutableSlice", "1"]
+- !private ["Ps10MirrorPath", "isEmpty"]
 - ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isEmpty"]
+- !private ["PSo8NSCoding", "maximumSignificantDigits"]
+- !private ["PSo8NSCoding", "string"]
 - ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEmpty"]
+- !private ["PSo9NSCopying", "maximumSignificantDigits"]
+- !private ["PSo9NSCopying", "string"]
 - ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "isEmpty"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isEmpty"]
+- !private ["CSo8NSObject", "maximumSignificantDigits"]
+- !private ["CSo8NSObject", "string"]
 - ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isEmpty"]
+- !private ["PSo16NSObjectProtocol", "maximumSignificantDigits"]
+- !private ["PSo16NSObjectProtocol", "string"]
 - ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "isEmpty"]
 - ["CSo8NSString", "init"]
-- !private ["Ps22RandomAccessCollection", "0"]
-- !private ["Ps22RandomAccessCollection", "1"]
-- !private ["Ps22RandomAccessCollection", "append"]
-- !private ["Ps22RandomAccessCollection", "count"]
-- !private ["Ps22RandomAccessCollection", "isEmpty"]
-- !private ["Ps22RandomAccessCollection", "last"]
-- !private ["Ps22RandomAccessCollection", "popLast"]
-- !private ["Ps22RandomAccessCollection", "removeAll"]
-- !private ["Ps22RandomAccessCollection", "subscript"]
-- !private ["Ps26RangeReplaceableCollection", "0"]
-- !private ["Ps26RangeReplaceableCollection", "1"]
-- !private ["Ps26RangeReplaceableCollection", "append"]
-- !private ["Ps26RangeReplaceableCollection", "count"]
-- !private ["Ps26RangeReplaceableCollection", "isEmpty"]
-- !private ["Ps26RangeReplaceableCollection", "last"]
-- !private ["Ps26RangeReplaceableCollection", "popLast"]
-- !private ["Ps26RangeReplaceableCollection", "removeAll"]
-- !private ["Ps26RangeReplaceableCollection", "subscript"]
-- !private ["Vs21RangeReplaceableSlice", "0"]
-- !private ["Vs21RangeReplaceableSlice", "1"]
-- !private ["Ps8Sequence", "0"]
-- !private ["Ps8Sequence", "1"]
-- !private ["Ps8Sequence", "append"]
-- !private ["Ps8Sequence", "count"]
-- !private ["Ps8Sequence", "isEmpty"]
-- !private ["Ps8Sequence", "last"]
-- !private ["Ps8Sequence", "popLast"]
-- !private ["Ps8Sequence", "removeAll"]
+- !private ["CSo8NSString", "isEmpty"]
+- !private ["CSo15NumberFormatter", "init"]
+- !private ["CSo15NumberFormatter", "maximumSignificantDigits"]
+- !private ["CSo15NumberFormatter", "string"]
 - !private ["Ps8Sequence", "subscript"]
-- !private ["Ps13SignedInteger", "hashValue"]
-- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps12SignedNumber", "init"]
 - ["Ps12SignedNumber", "pi"]
-- !private ["Ps10Strideable", "hashValue"]
+- !private ["Ps10Strideable", "init"]
 - ["Ps10Strideable", "pi"]
 - ["SS", "init"]
+- !private ["SS", "isEmpty"]
 - ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "isEmpty"]
 - ["Ps20TextOutputStreamable", "init"]
-- !private ["Ps14_ArrayProtocol", "0"]
-- !private ["Ps14_ArrayProtocol", "1"]
-- !private ["Ps14_ArrayProtocol", "append"]
-- !private ["Ps14_ArrayProtocol", "count"]
-- !private ["Ps14_ArrayProtocol", "isEmpty"]
-- !private ["Ps14_ArrayProtocol", "last"]
-- !private ["Ps14_ArrayProtocol", "popLast"]
-- !private ["Ps14_ArrayProtocol", "removeAll"]
-- !private ["Ps14_ArrayProtocol", "subscript"]
-- !private ["Ps23_BidirectionalIndexable", "0"]
-- !private ["Ps23_BidirectionalIndexable", "1"]
-- !private ["Ps23_BidirectionalIndexable", "append"]
-- !private ["Ps23_BidirectionalIndexable", "count"]
-- !private ["Ps23_BidirectionalIndexable", "isEmpty"]
-- !private ["Ps23_BidirectionalIndexable", "last"]
-- !private ["Ps23_BidirectionalIndexable", "popLast"]
-- !private ["Ps23_BidirectionalIndexable", "removeAll"]
-- !private ["Ps23_BidirectionalIndexable", "subscript"]
+- !private ["Ps20TextOutputStreamable", "isEmpty"]
+- !private ["Ps15_CVarArgAligned", "init"]
 - ["Ps15_CVarArgAligned", "pi"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
 - ["Ps22_CVarArgPassedAsDouble", "pi"]
-- !private ["Ps24_DestructorSafeContainer", "0"]
-- !private ["Ps24_DestructorSafeContainer", "1"]
-- !private ["Ps24_DestructorSafeContainer", "append"]
-- !private ["Ps24_DestructorSafeContainer", "count"]
-- !private ["Ps24_DestructorSafeContainer", "isEmpty"]
-- !private ["Ps24_DestructorSafeContainer", "last"]
-- !private ["Ps24_DestructorSafeContainer", "popLast"]
-- !private ["Ps24_DestructorSafeContainer", "removeAll"]
-- !private ["Ps24_DestructorSafeContainer", "subscript"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
 - ["Ps33_ExpressibleByBuiltinFloatLiteral", "pi"]
-- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "pi"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "isEmpty"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
-- ["Ps9_Hashable", "_toAnyHashable"]
-- ["Ps9_Hashable", "hashValue"]
 - ["Ps9_Hashable", "init"]
-- !private ["Ps9_Hashable", "number"]
+- !private ["Ps9_Hashable", "isEmpty"]
+- !private ["Ps9_Hashable", "maximumSignificantDigits"]
 - ["Ps9_Hashable", "pi"]
-- !private ["Ps9_Hashable", "sign"]
-- ["Ps9_Hashable", ""]
-- !private ["Ps14_Incrementable", "hashValue"]
-- !private ["Ps10_Indexable", "0"]
-- !private ["Ps10_Indexable", "1"]
-- !private ["Ps10_Indexable", "append"]
-- !private ["Ps10_Indexable", "count"]
-- !private ["Ps10_Indexable", "isEmpty"]
-- !private ["Ps10_Indexable", "last"]
-- !private ["Ps10_Indexable", "popLast"]
-- !private ["Ps10_Indexable", "removeAll"]
+- !private ["Ps9_Hashable", "string"]
 - !private ["Ps10_Indexable", "subscript"]
-- !private ["Ps14_IndexableBase", "0"]
-- !private ["Ps14_IndexableBase", "1"]
-- !private ["Ps14_IndexableBase", "append"]
-- !private ["Ps14_IndexableBase", "count"]
-- !private ["Ps14_IndexableBase", "isEmpty"]
-- !private ["Ps14_IndexableBase", "last"]
-- !private ["Ps14_IndexableBase", "popLast"]
-- !private ["Ps14_IndexableBase", "removeAll"]
 - !private ["Ps14_IndexableBase", "subscript"]
-- !private ["Ps8_Integer", "hashValue"]
-- !private ["Ps18_IntegerArithmetic", "hashValue"]
-- !private ["Ps17_MutableIndexable", "0"]
-- !private ["Ps17_MutableIndexable", "1"]
-- !private ["Ps17_MutableIndexable", "append"]
-- !private ["Ps17_MutableIndexable", "count"]
-- !private ["Ps17_MutableIndexable", "isEmpty"]
-- !private ["Ps17_MutableIndexable", "last"]
-- !private ["Ps17_MutableIndexable", "popLast"]
-- !private ["Ps17_MutableIndexable", "removeAll"]
-- !private ["Ps17_MutableIndexable", "subscript"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
-- !private ["Ps21_ObjectiveCBridgeable", "append"]
-- !private ["Ps21_ObjectiveCBridgeable", "count"]
-- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
-- !private ["Ps21_ObjectiveCBridgeable", "last"]
 - ["Ps21_ObjectiveCBridgeable", "pi"]
-- !private ["Ps21_ObjectiveCBridgeable", "popLast"]
-- !private ["Ps21_ObjectiveCBridgeable", "removeAll"]
 - !private ["Ps21_ObjectiveCBridgeable", "subscript"]
-- !private ["Ps22_RandomAccessIndexable", "0"]
-- !private ["Ps22_RandomAccessIndexable", "1"]
-- !private ["Ps22_RandomAccessIndexable", "append"]
-- !private ["Ps22_RandomAccessIndexable", "count"]
-- !private ["Ps22_RandomAccessIndexable", "isEmpty"]
-- !private ["Ps22_RandomAccessIndexable", "last"]
-- !private ["Ps22_RandomAccessIndexable", "popLast"]
-- !private ["Ps22_RandomAccessIndexable", "removeAll"]
-- !private ["Ps22_RandomAccessIndexable", "subscript"]
-- !private ["Ps26_RangeReplaceableIndexable", "0"]
-- !private ["Ps26_RangeReplaceableIndexable", "1"]
-- !private ["Ps26_RangeReplaceableIndexable", "append"]
-- !private ["Ps26_RangeReplaceableIndexable", "count"]
-- !private ["Ps26_RangeReplaceableIndexable", "isEmpty"]
-- !private ["Ps26_RangeReplaceableIndexable", "last"]
-- !private ["Ps26_RangeReplaceableIndexable", "popLast"]
-- !private ["Ps26_RangeReplaceableIndexable", "removeAll"]
-- !private ["Ps26_RangeReplaceableIndexable", "subscript"]
-- !private ["Ps14_SignedInteger", "hashValue"]
-- !private ["Ps11_Strideable", "hashValue"]
+- !private ["Ps11_Strideable", "init"]
 - ["Ps11_Strideable", "pi"]
-- ["OV10Calculator15CalculatorBrain14expressionType", "=="]
-- ["OV10Calculator15CalculatorBrain14expressionType", "_toAnyHashable"]
-- ["OV10Calculator15CalculatorBrain14expressionType", "deinit"]
-- ["OV10Calculator15CalculatorBrain14expressionType", "hashValue"]
-- ["OV10Calculator15CalculatorBrain14expressionType", "number"]
-- ["OV10Calculator15CalculatorBrain14expressionType", "sign"]
-- !private ["VV10Calculator15CalculatorBrain13historyStruct", "Double"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "String"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "append"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "array"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "clear"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "expressionType"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "getSum"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "init"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "lastElementExpressionType"]
-- ["VV10Calculator15CalculatorBrain13historyStruct", "removeLast"]
-- !private ["VV10Calculator15CalculatorBrain13historyStruct", "stride"]
 depends-nominal:
 - "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
-- !private "Sa"
-- !private "Vs10ArraySlice"
-- !private "Ps23BidirectionalCollection"
 - "Ps19BinaryFloatingPoint"
-- !private "Ps17BitwiseOperations"
 - !private "Sb"
 - "Ps7CVarArg"
 - "V10Calculator15CalculatorBrain"
@@ -385,7 +229,6 @@ depends-nominal:
 - !private "Vs10Dictionary"
 - "Sd"
 - "Ps9Equatable"
-- !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
@@ -394,37 +237,26 @@ depends-nominal:
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
 - "Ps13FloatingPoint"
+- !private "CSo9Formatter"
 - "Ps8Hashable"
-- !private "Si"
-- !private "Ps7Integer"
-- !private "Ps17IntegerArithmetic"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
-- !private "Vs25MutableBidirectionalSlice"
-- !private "Ps17MutableCollection"
-- !private "Vs24MutableRandomAccessSlice"
-- !private "Vs12MutableSlice"
 - "PSo8NSCoding"
 - "PSo9NSCopying"
 - "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - "CSo8NSString"
-- !private "Ps22RandomAccessCollection"
-- !private "Ps26RangeReplaceableCollection"
-- !private "Vs21RangeReplaceableSlice"
+- !private "CSo15NumberFormatter"
 - !private "Ps8Sequence"
-- !private "Ps13SignedInteger"
 - "Ps12SignedNumber"
 - "Ps10Strideable"
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
-- !private "Ps14_ArrayProtocol"
-- !private "Ps23_BidirectionalIndexable"
 - "Ps15_CVarArgAligned"
 - "Ps22_CVarArgPassedAsDouble"
-- !private "Ps24_DestructorSafeContainer"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - "Ps33_ExpressibleByBuiltinFloatLiteral"
@@ -435,19 +267,10 @@ depends-nominal:
 - "Ps33_ExpressibleByStringInterpolation"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
-- !private "Ps14_Incrementable"
 - !private "Ps10_Indexable"
 - !private "Ps14_IndexableBase"
-- !private "Ps8_Integer"
-- !private "Ps18_IntegerArithmetic"
-- !private "Ps17_MutableIndexable"
 - "Ps21_ObjectiveCBridgeable"
-- !private "Ps22_RandomAccessIndexable"
-- !private "Ps26_RangeReplaceableIndexable"
-- !private "Ps14_SignedInteger"
 - "Ps11_Strideable"
-- "OV10Calculator15CalculatorBrain14expressionType"
-- "VV10Calculator15CalculatorBrain13historyStruct"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
@@ -466,4 +289,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "7108d4d94a962fba37e9e8f7578673c0"
+interface-hash: "001f2de63acdc241bfc26d9b39a7bc41"
