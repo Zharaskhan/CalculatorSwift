@@ -8,6 +8,12 @@
 
 import UIKit
 
+var formatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.maximumSignificantDigits = 5
+    return formatter
+}()
+
 class CalculatorViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
@@ -47,13 +53,7 @@ class CalculatorViewController: UIViewController {
     
     var displayValue: Double {
         get { return Double(displayLabel.text!)! }
-        set {
-            
-            let formatter = NumberFormatter()
-            formatter.maximumSignificantDigits = 5
-            displayLabel.text = formatter.string(from: newValue as NSNumber)
-           
-        }
+        set { displayLabel.text = formatter.string(from: newValue as NSNumber) }
     }
     
     @IBAction func performOperation(_ sender: UIButton) {
