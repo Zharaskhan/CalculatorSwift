@@ -20,17 +20,17 @@ struct CalculatorBrain {
     
     
     //Transforms number to string with 5 maximum significant digits
-    func toString(_ number: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.maximumSignificantDigits = 5
-        return formatter.string(from: number as NSNumber)!
-    }
+//    func toString(_ number: Double) -> String {
+//        let formatter = NumberFormatter()
+//        formatter.maximumSignificantDigits = 5
+//        return formatter.string(from: number as NSNumber)!
+//    }
     
     
     // закачиваем операнд в модельку
     mutating func setOperand(_ operand: Double) {
         accumulator = operand
-        accumulatorString = toString(operand)
+        accumulatorString = formatter.string(from: operand as NSNumber!)
     
     }
     
@@ -76,7 +76,7 @@ struct CalculatorBrain {
                 case .random:
                     //generating random number between 0 and 100 with 2 digits after floating point
                     accumulator = (Double(arc4random_uniform(101)) / 100.0)
-                    accumulatorString = toString(accumulator!)
+                    accumulatorString = formatter.string(from: accumulator! as NSNumber!)
                 case .unaryOperation(let function):
                     if resultIsPending && accumulator == nil {
                         accumulator = resultVal
@@ -85,15 +85,15 @@ struct CalculatorBrain {
                     if accumulator != nil {
                         //performing function on number in display
                         
-                        let f = function(accumulator!, accumulatorString!)
-                        accumulator = f.0
-                        accumulatorString = f.1
+                        let currentOperation = function(accumulator!, accumulatorString!)
+                        accumulator = currentOperation.0
+                        accumulatorString = currentOperation.1
                         
                     } else {
                         //performing function on result number
-                        let f = function(resultVal!, resultString)
-                        resultVal = f.0
-                        resultString = f.1
+                        let currentOperation = function(resultVal!, resultString)
+                        resultVal = currentOperation.0
+                        resultString = currentOperation.1
                         
                         
                     }
@@ -104,8 +104,14 @@ struct CalculatorBrain {
                         if accumulator != nil {
                             resultVal = pendingFunction(resultVal!, accumulator!)
                             resultString = resultString + " " + pendingSymbol + " " + accumulatorString!
+                            if symbol == "×" || symbol == "÷" {
+                                resultString = "(" + resultString + ")"
+                            }
                         }
-                    } else if resultString.isEmpty{
+                    } else if resultString.isEmpty == false {
+                        
+                        resultString = "(" + resultString + ")"
+                    }  else if resultString.isEmpty{
                         
                         //Case when  result is string empty
                         
